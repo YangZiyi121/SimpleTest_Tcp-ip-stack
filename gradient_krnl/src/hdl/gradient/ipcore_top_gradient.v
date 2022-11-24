@@ -281,11 +281,11 @@ tcp_top_loopback top_instance (
 .m_axis_read_package_TREADY(m_axis_tcp_read_pkg_tready),
 .m_axis_read_package_TDATA(m_axis_tcp_read_pkg_tdata),
 
-.m_axis_tx_data_TVALID(),
-.m_axis_tx_data_TREADY(),
-.m_axis_tx_data_TDATA(),
-.m_axis_tx_data_TKEEP(),
-.m_axis_tx_data_TLAST(),
+.m_axis_tx_data_TVALID(m_axis_tcp_tx_data_tvalid),
+.m_axis_tx_data_TREADY(m_axis_tcp_tx_data_tready),
+.m_axis_tx_data_TDATA(m_axis_tcp_tx_data_tdata),
+.m_axis_tx_data_TKEEP(m_axis_tcp_tx_data_tkeep),
+.m_axis_tx_data_TLAST(m_axis_tcp_tx_data_tlast),
 
 .m_axis_tx_metadata_TVALID(m_axis_tcp_tx_meta_tvalid),
 .m_axis_tx_metadata_TREADY(m_axis_tcp_tx_meta_tready),

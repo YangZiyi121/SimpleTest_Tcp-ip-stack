@@ -60,7 +60,7 @@ module tcp_top_loopback #(
 
 			  output  reg	    m_axis_tx_metadata_TVALID, //for handshake logic
 			  input  wire     m_axis_tx_metadata_TREADY,
-			  output  reg [15:0] m_axis_tx_metadata_TDATA, //for handshake logic
+			  output  reg [31:0] m_axis_tx_metadata_TDATA, //for handshake logic
 
 			  input  wire     s_axis_tx_status_TVALID,
 			  output  wire    s_axis_tx_status_TREADY,
@@ -120,7 +120,7 @@ module tcp_top_loopback #(
    //wire 				    sesspackMetaReady;
    reg                      sesspackMetaReady;
    wire 				    sesspackLast;
-   wire [63:0] 				    sesspackData;
+   //wire [63:0] 				    sesspackData;
    wire [63:0] 				    sesspackMeta;
    
    
