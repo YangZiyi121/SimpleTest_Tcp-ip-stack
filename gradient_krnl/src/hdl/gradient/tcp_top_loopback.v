@@ -354,7 +354,7 @@ module tcp_top_loopback #(
 
           if (m_axis_tx_metadata_TREADY==1) begin
             m_axis_tx_metadata_TVALID <= sesspackMetaValid; 
-            m_axis_tx_metadata_TDATA <= sesspackMeta;
+            m_axis_tx_metadata_TDATA <= {16'h64, sesspackMeta[15:0]};
 
             if (sesspackMetaValid==1) begin
               waitingForStatusWord <= waitingForStatusWord+1;
@@ -400,13 +400,5 @@ module tcp_top_loopback #(
 //                  .m_axis_tready(m_axis_tx_metadata_TREADY),
 //                  .m_axis_tdata(m_axis_tx_metadata_TDATA)
 //                  ); 
-
-
-
-
-
-
- 
-
 
 endmodule
