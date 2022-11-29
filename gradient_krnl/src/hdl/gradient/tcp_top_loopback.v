@@ -105,9 +105,12 @@ module tcp_top_loopback #(
    //wire [512:0] 				    fromAdderData;
    //wire 				    fromAdderReady;
    
-   (* mark_debug = "true" *) wire 				    splitPreValid;
-   (* mark_debug = "true" *) wire                     splitPreReady;
-   (* mark_debug = "true" *) wire [64+511+1:0]                     splitPreData;   
+   //(* mark_debug = "true" *) wire 				    splitPreValid;
+	wire 				    splitPreValid;
+   //(* mark_debug = "true" *) wire                     splitPreReady;
+ 	wire                     splitPreReady;
+   //(* mark_debug = "true" *) wire [64+511+1:0]                     splitPreData;   
+	wire [64+511+1:0]                     splitPreData;   
 
    wire 				    finalOutValid;
    wire                     finalOutReady;
@@ -271,7 +274,7 @@ module tcp_top_loopback #(
    //assign   maxis_tx_last = finalOutValid & finalOutLast;
    
   //assign   finalOutReady = maxis_meta_ready & maxis_tx_ready;
-   assign   finalOutReady =  dataTokens == 0 ? 0 :  m_axis_tx_data_TREADY; //change how to assign finalOutReady
+  assign   finalOutReady =  dataTokens == 0 ? 0 :  m_axis_tx_data_TREADY; //change how to assign finalOutReady
    
    //assign   maxis_meta_data = finalOutData[15:0];
    //assign   maxis_meta_valid = finalOutValid & finalOutReady & finalOutLast;
@@ -297,7 +300,7 @@ module tcp_top_loopback #(
   //assign m_axis_tx_data_TLAST = m_axis_tx_data_COMBINED[512]; 
   //assign m_axis_tx_data_TLAST = 1'b1;
   //assign m_axis_tx_data_TLAST = m_axis_tx_data_COMBINED[32];
-  assign m_axis_tx_data_TVALID = finalOutValid & finalOutReady;  
+  assign m_axis_tx_data_TVALID = finalOutValid;  
   assign m_axis_tx_data_TLAST = finalOutData[512+64];     
                     
   ////////////handshake logic start////////////////////////////////

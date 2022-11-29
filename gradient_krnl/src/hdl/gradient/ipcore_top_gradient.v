@@ -21,7 +21,6 @@ module ipcore_top_gradient
   parameter integer C_M_AXIS_TCP_TX_META_TDATA_WIDTH          = 32 ,
   parameter integer C_M_AXIS_TCP_TX_DATA_TDATA_WIDTH          = 512,
   parameter integer C_S_AXIS_TCP_TX_STATUS_TDATA_WIDTH        = 64,
-
   parameter integer ENABLE_PROCESSING                         = 0
 
 )
@@ -246,7 +245,7 @@ assign m_axis_tcp_read_pkg_tlast = 1;
 assign m_axis_tcp_tx_meta_tkeep = 16'hffff;
 assign m_axis_tcp_tx_meta_tlast = 1;
 
-assign m_axis_tcp_tx_data_tkeep = 64'hffffffffffffffff;
+//assign m_axis_tcp_tx_data_tkeep = 64'hffffffffffffffff;
 
 tcp_top_loopback top_instance (
 
